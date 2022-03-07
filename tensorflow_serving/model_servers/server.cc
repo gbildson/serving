@@ -324,7 +324,7 @@ Status Server::BuildAndStart(const Options& server_options) {
 
   // 0.0.0.0" is the way to listen on localhost in gRPC.
   const string server_address =
-      "0.0.0.0:" + std::to_string(server_options.grpc_port);
+      "127.0.0.1:" + std::to_string(server_options.grpc_port);
   model_service_ = absl::make_unique<ModelServiceImpl>(server_core_.get());
 
   PredictionServiceImpl::Options predict_server_options;
